@@ -1,10 +1,5 @@
 L = [6,12,18,24,30,42,48]
 Index = {}
-#def single_link():
-
-
-
-
 if __name__ == "__main__":
     i = 0
     for item in L:
