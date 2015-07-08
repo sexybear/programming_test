@@ -11,8 +11,6 @@ def get_geo_dict(filename):
         geo_dict[line_con[0]] = []
         geo_dict[line_con[0]].append(int(line_con[1]))
         geo_dict[line_con[0]].append(int(line_con[2]))
-    #return geo_dict
-
     dataList = []
     for item in geo_dict.keys():
         dataList.append(geo_dict[item])
@@ -48,7 +46,6 @@ def kMeans(dataset,k,distMeas = distance,createcent = randCent):
                     minDist = distji;minIndex = j
             if clusterAssmet[i,0] != minIndex:clusterChanged = True
             clusterAssmet[i,:] = minIndex,minDist**2
-        #print centroids
         for cent in range(k):
             pointClust = dataset[nonzero(clusterAssmet[:,0].A == cent)[0]]
             centroids[cent,:] = mean(pointClust,axis = 0)
@@ -59,9 +56,7 @@ if __name__ == '__main__':
     
     dataMat = get_geo_dict(filename)
     print dataMat
-    #print randCent(dataMat,3)
     myCentroid,clustAssig = kMeans(dataMat,4)
-    #print clustAssig
     fig = plt.figure()
     rect = [0.1,0.1,0.8,0.8]
     axprops = dict(xticks = [],yticks = [])
